@@ -9,10 +9,33 @@ class ClosestPairOfPoints{
         let pointB;
 
         for (let i = 0; i < size; i++) {
+            // let j = i + 1;
+
+            // console.log(strip);
+            // console.log('i', i);
+            // console.log('j', j);
+
+            // console.log('condition')
+            // console.log(strip[j].y)
+            // console.log(strip[i].y)
+            // console.log(min_value);
+            
+            // console.log('\n');
+            
+            // while((j < size) && (strip[j].y - strip[i].y) < min_value){
+            //     min_value = this.dist(strip[i], strip[j]);
+            //     pointA = strip[i];
+            //     pointB = strip[j];
+                
+            //     j++;
+            // }
+
+            // console.log('\n\n');
+
             for (let j = i + 1; (j < size) && (strip[j].y - strip[i].y) < min_value; j++) {
                 min_value = this.dist(strip[i], strip[j]);
-                pointA = points[i];
-                pointB = points[j];
+                pointA = strip[i];
+                pointB = strip[j];
             }
         }
 
@@ -37,15 +60,15 @@ class ClosestPairOfPoints{
     }
 
     calculate(points, points_copy, size){
-        let middle = Math.floor(size/2);
-        let middlePoint = points[middle];
-        
         if(size <= 3){
             return this.bruteForce(points, size);
         }
+        
+        let middle = Math.floor(size/2);
+        let middlePoint = points[middle];
 
         let leftStrip = this.calculate(points.slice(0, middle), points_copy, middle);
-        let rightStrip = this.calculate(points.slice(middle, points.length), points_copy, middle);
+        let rightStrip = this.calculate(points.slice(middle, points.length), points_copy, size - middle);
 
         let closestPoints = leftStrip[0] < rightStrip[0] ? leftStrip : rightStrip;
 
