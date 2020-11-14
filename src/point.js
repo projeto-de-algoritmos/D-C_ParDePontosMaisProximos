@@ -6,6 +6,7 @@ class Point{
 
     display(){
         stroke(255, 255, 255);
+        strokeWeight(1);
         fill(255, 0, 0);
         ellipse(this.x, this.y, 20, 20);
         noStroke();

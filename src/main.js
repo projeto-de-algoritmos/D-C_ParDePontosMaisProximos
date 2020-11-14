@@ -1,82 +1,87 @@
-// import Point from './src/point.js';
-// const User = require('./src/point.js')
-
-
 var addButton;
 var removeButton;
+var removeAllPointsButton;
+
+var distanceTitle = 'Distância:';
+var distanceText;
+
+var pointATitle = 'Ponto A:';
+var pointAText;
+
+var pointBTitle = 'Ponto B:';
+var pointBText;
+
 var points = [];
 var addAction = true;
-var coordRemoveRect = [];
-var removeClicks = 0;
-
-var posXRect;
-var posYRect;
-var widthRect;
-var heightRect;
+var closestPair = new ClosestPairOfPoints();
 
 function setup() {
     createCanvas(windowWidth - 200, windowHeight - 5);
-    background(50);
-    insertButtons();
+    insertButtonsAndTexts();
 }
   
 function mousePressed(){
-    if(addAction){
-        points.push(new Point(mouseX, mouseY));
-    } else {
-        
-    }
-    
+    if(mouseX <= windowWidth - 200 && mouseY <= windowHeight - 5){
+        if(addAction){
+                points.push(new Point(mouseX, mouseY));
+
+                if(points.length > 1){
+                    let closestPoints = closestPair.calculateClosestPair(points);
+                    
+                    distanceText = closestPoints[0];
+                    pointAText = closestPoints[1];
+                    pointBText = closestPoints[2];
+
+                    console.log('Distance:', closestPoints[0]);
+                    console.log('PointA:', closestPoints[1].x, closestPoints[1].y);
+                    console.log('PointB:', closestPoints[2].x, closestPoints[2].y);
+                    console.log('\n');
+                }
+        } else {
+
+            
+        }
+    }   
 }
 
 function draw() {
+    background(50);
     for (var i = 0; i < points.length; i++){
         points[i].display();
     }
 }
 
-function addPointButton(){
+function addPointButtonAction(){
     addAction = true;
 }
 
-function removePointButton(){
+function removePointButtonAction(){
     addAction = false;
-    coordRemoveRect = [];
 }
 
-function getRectCoordinates(){
-    let posX;
-    let posY;
-    let width;
-    let height;
-
-    if(coordRemoveRect[0] < coordRemoveRect[2]){
-        posX = coordRemoveRect[0];
-        width = coordRemoveRect[2] - coordRemoveRect[0];
-    } else {
-        posX = coordRemoveRect[2];
-        width = coordRemoveRect[0] - coordRemoveRect[2];
-    }
-
-    if(coordRemoveRect[1] < coordRemoveRect[3]){
-        posY = coordRemoveRect[1];
-        height = coordRemoveRect[3] - coordRemoveRect[1];
-    } else {
-        posY = coordRemoveRect[3];
-        height = coordRemoveRect[1] - coordRemoveRect[3];
-    }
-
-    return [posX, posY, width, height];
+function removeAllPointsButtonAction(){
+    points = [];
 }
 
-function insertButtons(){
+function insertButtonsAndTexts(){
     addButton = createButton("Adicionar pontos");
     addButton.position(windowWidth - 190, 10);
     addButton.size(165, 25);
-    addButton.mousePressed(addPointButton);
+    addButton.mousePressed(addPointButtonAction);
 
     removeButton = createButton("Remover pontos");
     removeButton.position(windowWidth - 190, 45);
     removeButton.size(165, 25);
-    removeButton.mousePressed(removePointButton);
+    removeButton.mousePressed(removePointButtonAction);
+
+    removeAllPointsButton = createButton("Remover todos os pontos");
+    removeAllPointsButton.position(windowWidth - 190, 75);
+    removeAllPointsButton.size(165, 40);
+    removeAllPointsButton.mousePressed(removeAllPointsButtonAction);
+    
+    // fill(0);
+    textSize(32)
+    text(distanceTitle, windowWidth - 190, 150);
+    // text(pointATitle, windowWidth - 190, 180);
+    // text(pointBTitle, windowWidth - 190, 210);
 }
