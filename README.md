@@ -10,13 +10,13 @@
 | 19/0134623  |  Marcos Diego da Silva Gomes |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+O projeto tem como objetivo demonstrar o par de pontos mais próximos dentro de um ambiente 2D definido. É utilizado o conceito de Dividir e Conquistar para melhorar a  efieciência do algoritmo utilizado.
 
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
+**Linguagem**: Javascript<br>
 **Framework**: (caso exista)<br>
 Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
 
