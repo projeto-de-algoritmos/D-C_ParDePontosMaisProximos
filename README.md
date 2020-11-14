@@ -1,4 +1,4 @@
-# NomedoProjeto
+# Par de Pontos Mais Próximos
 
 **Número da Lista**: 4<br>
 **Conteúdo da Disciplina**: Dividir e Conquistar<br>
@@ -17,14 +17,13 @@ Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 ## Instalação 
 **Linguagem**: Javascript<br>
-**Framework**: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+- Clone o repositório:<br>
+    ``` git clone https://github.com/projeto-de-algoritmos/D-C_ParDePontosMaisProximos ```
+
+- Para executar o projeto abra o arquivo ```index.html``` em um navegador que possua Javascript.
 
 ## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
-
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
+Para visualizar os pares mais próximos, basta clicar dentro da área cinza na página, isso adicionará os pontos nos locais desejados e mostrará quais os pontos mais próximos dentre eles através de uma linha conectando-os.
 
 
 
