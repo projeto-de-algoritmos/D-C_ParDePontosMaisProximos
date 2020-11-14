@@ -13,7 +13,12 @@
 O projeto tem como objetivo demonstrar o par de pontos mais próximos dentro de um ambiente 2D definido. É utilizado o conceito de Dividir e Conquistar para melhorar a  efieciência do algoritmo utilizado.
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+#### Tela inicial
+![initial](images/initial.png)
+#### Adicionando ponto
+![point](images/point.png)
+#### Resultado com par mais próximo
+![result](images/result.png)
 
 ## Instalação 
 **Linguagem**: Javascript<br>
